@@ -16,6 +16,7 @@ function getPosts(){
         $i++;
     };
     echo json_encode($api_data);
+    
 
 }; 
 function getOnePost($id){
@@ -34,6 +35,11 @@ function getOnePost($id){
 // 
 // UPDATE when form is created
 // 
+// $body = file_get_contents('php://input');
+// $body_dec = json_decode($body, true);
+// $body_enc = json_encode($body);
+// echo $body_enc;
+
 function editPost($post, $id){
     include 'connections.php';
     extract($post);

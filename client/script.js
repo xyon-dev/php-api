@@ -3,9 +3,19 @@ const content = document.getElementById("root");
 
 let getBlogPosts = async () => {
     let blogPosts = await fetch('http://localhost/php-api/blog', { 
-        method: 'GET', 
+        "method": "GET",
+        "headers":{
+            "Content-Type": "application/json",
+            // "Content-Length": 200,
+            // "Transfer-Encoding": "gzip",
+        },
+        // "body": JSON.stringify({
+        //     Msg: "hello world"
+        // })   
+        // NEEDED FOR SENDING DATA
     })
-    .then(response => response.json())
+    .then(response => response.json()
+    )
     .then((posts) => {
         for(i=0; i<posts.length; i++){
             let post = posts[Object.keys(posts)[i]];
@@ -20,6 +30,7 @@ let getBlogPosts = async () => {
             ${blog}
         `;
     });
+    
 };
 getBlogPosts();
 // 
